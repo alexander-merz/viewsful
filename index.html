@@ -3,10 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + Lit-Element App</title>
-    <script type="module" src="/packages/my-element/my-element.ts"></script>
+    <title>Viewsful</title>
+    <script type="module" src="/packages/index.ts"></script>
   </head>
   <body>
-    <my-element style="--padding: 3rem; --border: 1px dashed blue"></my-element>
+    <viewsful-checkbox checked></viewsful-checkbox>
+
+    <script>
+      document.querySelector('viewsful-checkbox').addEventListener('change', console.log)
+    </script>
   </body>
 </html>

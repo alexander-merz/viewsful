@@ -1,17 +1,17 @@
 import { css } from 'lit'
 
-export default css`
+const hostCss = css`
   :host {
     --thumb: var(--switch-thumb, hsl(0 0% 100%));
-    --thumb-size: var(--switch-thumb-size, 1rem);
+    --thumb-size: var(--switch-thumb-size, var(--font-size-base, 1.25em));
     --thumb-highlight: var(--switch-thumb-highlight, hsl(0 0% 0% / 25%));
     --thumb-position: var(--switch-thumb-position, 0%);
     --thumb-transition-duration: var(--switch-thumb-transition-duration, 0.25s);
 
     --track-size: var(--switch-track-size, calc(var(--thumb-size) * 2));
-    --track-padding: var(--switch-track-padding, 2px);
+    --track-padding: var(--switch-track-padding, calc(var(--spacing-base, 10px) * 0.2));
     --track-inactive: var(--switch-track-inactive, hsl(80 0% 80%));
-    --track-active: var(--switch-track-active, hsl(240, 100%, 50%));
+    --track-active: var(--switch-track-active, var(--theme-color-primary, hsl(240, 100%, 50%)));
 
     --thumb-color: var(--thumb);
     --thumb-color-highlight: var(--thumb-highlight);
@@ -24,14 +24,11 @@ export default css`
     cursor: pointer;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
-
     width: fit-content;
   }
+`
 
-  :host.vertical {
-    display: none;
-  }
-
+const labelCss = css`
   label {
     width: inherit;
     display: flex;
@@ -39,7 +36,9 @@ export default css`
     justify-content: space-between;
     gap: 1ch;
   }
+`
 
+const inputCss = css`
   input {
     padding: var(--track-padding);
     background: var(--track-color-inactive);
@@ -93,3 +92,5 @@ export default css`
     box-shadow: inset 0 0 0 2px hsl(0 0% 100% / 50%);
   }
 `
+
+export default [hostCss, labelCss, inputCss]

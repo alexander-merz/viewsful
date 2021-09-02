@@ -1,0 +1,16 @@
+{
+  "name": "@viewsful/design",
+  "version": "0.1.0",
+  "description": "Viewsful Design System",
+  "scripts": {
+    "build:watch": "gulp"
+  },
+  "keywords": [],
+  "author": "Alexander Merz",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.0.0",
+    "sass": "^1.38.2"
+  }
+}

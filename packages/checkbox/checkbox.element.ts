@@ -1,19 +1,26 @@
-import { LitElement, html } from 'lit'
+import { LitElement, html, TemplateResult } from 'lit'
 import { customElement } from 'lit/decorators.js'
 
 import { BrowserEvent } from '../base'
 import { isCheckbox } from '../common'
-
 import checkboxStyles from './checkbox.styles'
 
 @customElement('viewsful-checkbox')
 export class ViewsfulCheckbox extends isCheckbox(LitElement) {
   static styles = checkboxStyles
 
-  render() {
+  render(): TemplateResult {
     return html`<label>
-      <input type="checkbox" checked=${this.checked} @change=${this.toggle} />
-      <span>${this.checked}</span>
+      <input
+        aria-checked=${this.checked}
+        aria-disabled=${this.disabled}
+        ?checked=${this.checked}
+        ?disabled=${this.disabled}
+        role="checkbox"
+        type="checkbox"
+        @change=${this.toggle}
+      />
+      <slot></slot>
     </label>`
   }
 

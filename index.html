@@ -1,16 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Viewsful</title>
     <script type="module" src="/packages/index.ts"></script>
   </head>
-  <body>
-    <viewsful-checkbox checked></viewsful-checkbox>
 
-    <script>
-      document.querySelector('viewsful-checkbox').addEventListener('change', console.log)
-    </script>
+  <body>
+    <!-- Checkboxes -->
+    <viewsful-checkbox>Unchecked</viewsful-checkbox>
+    <viewsful-checkbox checked>Checked</viewsful-checkbox>
+    <viewsful-checkbox disabled>Unchecked & Disabled</viewsful-checkbox>
+    <viewsful-checkbox checked disabled>Checked & Disabled</viewsful-checkbox>
+
+    <br />
+
+    <!-- Switches -->
+    <viewsful-switch vertical>Off</viewsful-switch>
+    <viewsful-switch checked>On</viewsful-switch>
+    <viewsful-switch disabled>Off & Disabled</viewsful-switch>
+    <viewsful-switch checked disabled>On & Disabled</viewsful-switch>
   </body>
 </html>

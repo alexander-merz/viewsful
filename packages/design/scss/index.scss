@@ -1,0 +1,32 @@
+@import './reset';
+@import './variables';
+@import './maps';
+@import './root';
+
+@each $color, $value in $viewsful-colors {
+  @each $shade, $lightness in $viewsful-shades {
+    .text-#{$color}-#{$shade} {
+      color: hsl(
+        map-get($viewsful-colors, $color, 'hue'),
+        map-get($viewsful-colors, $color, 'saturation'),
+        #{$lightness}
+      );
+    }
+
+    .bg-#{$color}-#{$shade} {
+      background-color: hsl(
+        map-get($viewsful-colors, $color, 'hue'),
+        map-get($viewsful-colors, $color, 'saturation'),
+        #{$lightness}
+      );
+    }
+  }
+}
+
+@each $color, $value in $viewsful-colors {
+  @for $i from 1 through 5 {
+    .surface-#{$color}-#{$i} {
+      background-color: var(--surface-#{$color}-#{$i});
+    }
+  }
+}

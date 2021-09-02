@@ -1,0 +1,24 @@
+$viewsful-colors: (
+  'primary': (
+    'hue': var(--theme-color-primary-hue),
+    'saturation': var(--theme-color-primary-saturation),
+    'lightness': var(--theme-color-primary-lightness),
+  ),
+  'secondary': (
+    'hue': var(--theme-color-secondary-hue),
+    'saturation': var(--theme-color-secondary-saturation),
+    'lightness': var(--theme-color-secondary-lightness),
+  ),
+);
+
+$viewsful-shades: (
+  1: 10%,
+  2: 20%,
+  3: 30%,
+  4: 40%,
+  5: 50%,
+  6: 60%,
+  7: 70%,
+  8: 80%,
+  9: 90%,
+);

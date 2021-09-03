@@ -72,7 +72,7 @@ const inputCss = css`
     block-size: var(--thumb-size);
     background: var(--thumb-color);
     box-shadow: 0 0 0 var(--highlight-size) var(--thumb-color-highlight);
-    border-radius: 50%;
+    border-radius: inherit;
     transform: translateX(var(--thumb-position));
     transition: transform var(--thumb-transition-duration) ease, box-shadow 0.25s ease;
   }

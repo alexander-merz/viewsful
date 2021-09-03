@@ -9,12 +9,13 @@ export class ViewsfulSwitch extends ViewsfulCheckbox {
   static styles = switchStyles
 
   render(): TemplateResult {
-    return html`<label>
+    return html`<label part="label">
       <input
         aria-checked=${this.checked}
         aria-disabled=${this.disabled}
         ?checked=${this.checked}
         ?disabled=${this.disabled}
+        part="input"
         role="switch"
         type="checkbox"
         @change=${this.toggle}

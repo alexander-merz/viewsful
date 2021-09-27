@@ -21,6 +21,7 @@ const hostCss = css`
     --highlight-size: 0;
     --isLTR: 1;
 
+    display: inline-block;
     cursor: pointer;
     user-select: none;
     -webkit-tap-highlight-color: transparent;

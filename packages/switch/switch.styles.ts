@@ -2,96 +2,96 @@ import { css } from 'lit'
 
 const hostCss = css`
   :host {
-    --thumb: var(--switch-thumb, hsl(0 0% 100%));
-    --thumb-size: var(--switch-thumb-size, var(--font-size-base, 1.25em));
-    --thumb-highlight: var(--switch-thumb-highlight, hsl(0 0% 0% / 25%));
-    --thumb-position: var(--switch-thumb-position, 0%);
-    --thumb-transition-duration: var(--switch-thumb-transition-duration, 0.25s);
-
-    --track-size: var(--switch-track-size, calc(var(--thumb-size) * 2));
-    --track-padding: var(--switch-track-padding, calc(var(--spacing-base, 10px) * 0.2));
-    --track-inactive: var(--switch-track-inactive, hsl(80 0% 80%));
-    --track-active: var(--switch-track-active, var(--theme-color-primary, hsl(240, 100%, 50%)));
-
-    --thumb-color: var(--thumb);
-    --thumb-color-highlight: var(--thumb-highlight);
-    --track-color-inactive: var(--track-inactive);
-    --track-color-active: var(--track-active);
-
-    --highlight-size: 0;
-    --isLTR: 1;
+    --switch-size: 1.25rem;
+    --track-size: calc(var(--switch-size) * 2);
+    --thumb-size: var(--switch-size);
+    --thumb-scale: 1;
+    --thumb-color-active: white;
+    --thumb-color-inactive: white;
+    --track-color-active: darkcyan;
+    --track-color-inactive: lightgray;
+    --switch-animation-duration: 0.35s;
 
     display: inline-block;
     cursor: pointer;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
     width: fit-content;
+    vertical-align: middle;
   }
 `
 
-const labelCss = css`
-  label {
-    width: inherit;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1ch;
+const switchCss = css`
+  [part='switch'] {
+    position: relative;
+    display: inline-block;
+    text-align: left;
+
+    width: var(--track-size);
+    height: var(--thumb-size);
+    border-radius: var(--thumb-size);
   }
 `
 
-const inputCss = css`
-  input {
-    padding: var(--track-padding);
-    background: var(--track-color-inactive);
-    inline-size: var(--track-size);
-    block-size: var(--thumb-size);
-    border-radius: var(--track-size);
-
-    -webkit-appearance: none;
-    -moz-appearance: none;
+const trackCss = css`
+  [part='track'] {
     appearance: none;
-    pointer-events: none;
-    touch-action: pan-y;
-    border: none;
-    outline-offset: 5px;
-    box-sizing: content-box;
+    -webkit-appearance: none;
 
-    flex-shrink: 0;
-    display: grid;
-    align-items: center;
-    grid: [track] 1fr / [track] 1fr;
-
-    transition: background-color 0.25s ease;
-  }
-
-  input::before {
-    content: '';
-    cursor: pointer;
-    pointer-events: auto;
-    grid-area: track;
-    inline-size: var(--thumb-size);
-    block-size: var(--thumb-size);
-    background: var(--thumb-color);
-    box-shadow: 0 0 0 var(--highlight-size) var(--thumb-color-highlight);
     border-radius: inherit;
-    transform: translateX(var(--thumb-position));
-    transition: transform var(--thumb-transition-duration) ease, box-shadow 0.25s ease;
-  }
+    width: inherit;
+    height: inherit;
 
-  input:checked {
-    background: var(--track-color-active);
-    --thumb-position: calc((var(--track-size) - 100%) * var(--isLTR));
-  }
+    border: 0;
+    cursor: pointer;
+    margin: 0;
+    outline-offset: 5px;
+    position: absolute;
+    transition-property: all;
+    width: 100%;
 
-  input:disabled {
-    cursor: not-allowed;
-    --thumb-color: transparent;
-  }
-
-  input:disabled::before {
-    cursor: not-allowed;
-    box-shadow: inset 0 0 0 2px hsl(0 0% 100% / 50%);
+    background-color: var(--track-color-inactive);
+    transition-duration: var(--switch-animation-duration);
   }
 `
 
-export default [hostCss, labelCss, inputCss]
+const thumbCss = css`
+  [part='thumb'] {
+    border-radius: inherit;
+    height: inherit;
+    position: inherit;
+
+    box-shadow: 0 0 0 1px;
+    cursor: pointer;
+    max-width: 50%;
+    transition-property: all;
+
+    width: var(--thumb-size);
+    background-color: var(--thumb-color-inactive);
+    transform: scale(var(--thumb-scale));
+    transition-duration: var(--switch-animation-duration);
+  }
+`
+
+const pseudoCss = css`
+  [part='track']:checked {
+    background-color: var(--track-color-active);
+  }
+
+  [part='track']:checked + [part='thumb'] {
+    background-color: var(--thumb-color-active);
+    transform: translateX(calc(var(--track-size) - var(--thumb-size))) scale(var(--thumb-scale));
+  }
+
+  [part='track']:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  [part='track']:disabled + [part='thumb'] {
+    cursor: not-allowed;
+    opacity: 0.25;
+  }
+`
+
+export default [hostCss, switchCss, trackCss, thumbCss, pseudoCss]

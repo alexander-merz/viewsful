@@ -4,26 +4,123 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Viewsful</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap"
+      rel="stylesheet"
+    />
     <script type="module" src="/packages/index.ts"></script>
+    <style>
+      html {
+        height: 100%;
+        min-height: 100vh;
+        width: 100%;
+        max-width: 100vw;
+      }
+
+      body {
+        box-sizing: border-box;
+        margin: auto !important;
+        width: 80%;
+      }
+
+      h1 {
+        font-family: 'Indie Flower', cursive;
+        text-transform: uppercase;
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+      }
+
+      main {
+        display: flex;
+        gap: 5vmax;
+      }
+
+      .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 250px;
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+
+      /* Customizations */
+
+      #shape-sample::part(switch) {
+        border-radius: 0;
+      }
+
+      #bg-sample::part(thumb) {
+        background: url(https://picsum.photos/80);
+        background-repeat: no-repeat;
+        background-size: 5rem;
+        border-radius: 1rem;
+      }
+    </style>
   </head>
 
   <body>
-    <!-- Checkboxes -->
-    <viewsful-checkbox>Unchecked</viewsful-checkbox>
-    <viewsful-checkbox checked>Checked</viewsful-checkbox>
-    <viewsful-checkbox disabled>Unchecked & Disabled</viewsful-checkbox>
-    <viewsful-checkbox checked disabled>Checked & Disabled</viewsful-checkbox>
+    <h1>Switch</h1>
 
-    <br />
+    <main>
+      <section>
+        <h2>States</h2>
 
-    <!-- Switches -->
-    <span>Switches are displayed inline-block per default: </span
-    ><viewsful-switch>Off</viewsful-switch>
-    <br />
-    <viewsful-switch checked>On</viewsful-switch>
-    <br />
-    <viewsful-switch disabled>Off & Disabled</viewsful-switch>
-    <br />
-    <viewsful-switch checked disabled>On & Disabled</viewsful-switch>
+        <div class="row">
+          <span>Unchecked</span>
+          <viewsful-switch></viewsful-switch>
+        </div>
+        <div class="row">
+          <span>Checked</span>
+          <viewsful-switch checked></viewsful-switch>
+        </div>
+        <div class="row">
+          <span>Unchecked & Disabled</span>
+          <viewsful-switch disabled></viewsful-switch>
+        </div>
+        <div class="row">
+          <span>Checked & Disabled</span>
+          <viewsful-switch checked disabled></viewsful-switch>
+        </div>
+      </section>
+
+      <section>
+        <h2>Customizations</h2>
+        <div class="row">
+          <span>Track color</span>
+          <viewsful-switch
+            style="--track-color-inactive: firebrick; --track-color-active: forestgreen"
+          ></viewsful-switch>
+        </div>
+        <div class="row">
+          <span>Thumb color</span>
+          <viewsful-switch
+            style="--thumb-color-inactive: darkcyan; --thumb-color-active: hsl(180, 100%, 10%)"
+          ></viewsful-switch>
+        </div>
+        <div class="row">
+          <span>Switch Size XS</span>
+          <viewsful-switch style="--switch-size: 0.8rem"></viewsful-switch>
+        </div>
+        <div class="row">
+          <span>Switch Size XL</span>
+          <viewsful-switch style="--switch-size: 2.5rem"></viewsful-switch>
+        </div>
+        <div class="row">
+          <span>Thumb Size Small</span>
+          <viewsful-switch style="--thumb-scale: 0.5"></viewsful-switch>
+        </div>
+        <div class="row">
+          <span>Thumb Size Large</span>
+          <viewsful-switch style="--thumb-scale: 1.5"></viewsful-switch>
+        </div>
+        <div class="row">
+          <span>Shape</span>
+          <viewsful-switch id="shape-sample"></viewsful-switch>
+        </div>
+      </section>
+    </main>
   </body>
 </html>

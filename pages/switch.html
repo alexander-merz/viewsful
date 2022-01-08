@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Viewsful</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="/packages/index.ts"></script>
+    <style>
+      html {
+        height: 100%;
+        min-height: 100vh;
+        width: 100%;
+        max-width: 100vw;
+      }
+
+      body {
+        box-sizing: border-box;
+        margin: auto !important;
+        width: 80%;
+      }
+
+      h1 {
+        font-family: 'Indie Flower', cursive;
+        text-transform: uppercase;
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+      }
+
+      main {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10vw;
+      }
+
+      .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        min-width: 280px;
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+
+      /* Customizations */
+
+      #shape-sample::part(switch) {
+        border-radius: 0;
+      }
+
+      #bg-sample::part(thumb) {
+        background: url(https://upload.wikimedia.org/wikipedia/en/thumb/9/9a/Trollface_non-free.png/220px-Trollface_non-free.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        object-fit: cover;
+
+        background-color: transparent;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      #bg-sample::part(track)::after {
+        content: 'Trololol';
+        font-size: 1.15rem;
+        position: absolute;
+        left: -0.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: lightgray;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Switch</h1>
+    <a href="../index.html">Back</a>
+
+    <main>
+      <section>
+        <h2>States</h2>
+
+        <div class="row">
+          <span>Unchecked</span>
+          <viewsful-switch></viewsful-switch>
+        </div>
+        <div class="row">
+          <span>Checked</span>
+          <viewsful-switch checked></viewsful-switch>
+        </div>
+        <div class="row">
+          <span>Unchecked & Disabled</span>
+          <viewsful-switch disabled></viewsful-switch>
+        </div>
+        <div class="row">
+          <span>Checked & Disabled</span>
+          <viewsful-switch checked disabled></viewsful-switch>
+        </div>
+      </section>
+
+      <section>
+        <h2>Customizations</h2>
+        <div class="row">
+          <span>Track Color</span>
+          <viewsful-switch
+            style="--track-color-inactive: firebrick; --track-color-active: forestgreen"
+          ></viewsful-switch>
+        </div>
+        <div class="row">
+          <span>Thumb Color</span>
+          <viewsful-switch
+            style="--thumb-color-inactive: darkcyan; --thumb-color-active: black"
+          ></viewsful-switch>
+        </div>
+        <div class="row">
+          <span>Switch Size XS</span>
+          <viewsful-switch style="--switch-size: 0.8rem"></viewsful-switch>
+        </div>
+        <div class="row">
+          <span>Switch Size XL</span>
+          <viewsful-switch style="--switch-size: 2.5rem"></viewsful-switch>
+        </div>
+        <div class="row">
+          <span>Thumb Size Small</span>
+          <viewsful-switch style="--thumb-scale: 0.65"></viewsful-switch>
+        </div>
+        <div class="row">
+          <span>Thumb Size Large</span>
+          <viewsful-switch style="--thumb-scale: 1.5"></viewsful-switch>
+        </div>
+        <div class="row">
+          <span>Track Size</span>
+          <viewsful-switch style="--track-size: 200px"></viewsful-switch>
+        </div>
+      </section>
+
+      <section>
+        <h2 style="visibility: hidden">Customizations</h2>
+        <div class="row">
+          <span>Shape</span>
+          <viewsful-switch id="shape-sample"></viewsful-switch>
+        </div>
+        <div class="row">
+          <span>Animation Duration</span>
+          <viewsful-switch style="--switch-animation-duration: 1.5s"></viewsful-switch>
+        </div>
+        <div class="row">
+          <span>Thumb Image</span>
+          <viewsful-switch
+            id="bg-sample"
+            style="--thumb-scale: 2.5; --track-size: 100px; --track-color-active: transparent"
+          ></viewsful-switch>
+        </div>
+        <br />
+      </section>
+    </main>
+  </body>
+</html>

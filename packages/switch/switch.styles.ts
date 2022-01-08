@@ -2,15 +2,20 @@ import { css } from 'lit'
 
 const hostCss = css`
   :host {
-    --switch-size: 1.25rem;
+    --switch-size: 1.5rem;
+    --switch-animation-duration: 0.25s;
+
+    --track-color: unset;
+    --track-color-active: var(--track-color, darkcyan);
+    --track-color-inactive: var(--track-color, lightgray);
     --track-size: calc(var(--switch-size) * 2);
-    --thumb-size: var(--switch-size);
+
+    --thumb-color: unset;
+    --thumb-color-active: var(--thumb-color, white);
+    --thumb-color-inactive: var(--thumb-color, white);
     --thumb-scale: 1;
-    --thumb-color-active: white;
-    --thumb-color-inactive: white;
-    --track-color-active: darkcyan;
-    --track-color-inactive: lightgray;
-    --switch-animation-duration: 0.35s;
+    --thumb-shadow: 0 0 0 1px hsl(0 0% 0% / 25%);
+    --thumb-size: var(--switch-size);
 
     display: inline-block;
     cursor: pointer;
@@ -35,13 +40,12 @@ const switchCss = css`
 
 const trackCss = css`
   [part='track'] {
-    appearance: none;
-    -webkit-appearance: none;
-
     border-radius: inherit;
     width: inherit;
     height: inherit;
 
+    appearance: none;
+    -webkit-appearance: none;
     border: 0;
     cursor: pointer;
     margin: 0;
@@ -61,19 +65,25 @@ const thumbCss = css`
     height: inherit;
     position: inherit;
 
-    box-shadow: 0 0 0 1px;
     cursor: pointer;
     max-width: 50%;
     transition-property: all;
 
-    width: var(--thumb-size);
     background-color: var(--thumb-color-inactive);
+    box-shadow: var(--thumb-shadow);
     transform: scale(var(--thumb-scale));
     transition-duration: var(--switch-animation-duration);
+    width: var(--thumb-size);
   }
 `
 
 const pseudoCss = css`
+  @media (hover) {
+    [part='switch']:hover > [part='track']:not(:disabled) + [part='thumb'] {
+      box-shadow: 0 0 0 calc(var(--thumb-size) * 0.25) hsl(0 0% 0% / 25%);
+    }
+  }
+
   [part='track']:checked {
     background-color: var(--track-color-active);
   }

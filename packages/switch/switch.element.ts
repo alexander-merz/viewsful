@@ -21,7 +21,7 @@ export class ViewsfulSwitch extends ViewsfulCheckbox {
         @change=${this.toggle}
       />
       <div part="thumb"></div>
-    </label> `
+    </label>`
   }
 }
 

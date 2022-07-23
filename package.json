@@ -1,10 +1,10 @@
 {
-  "name": "vite-lit",
-  "version": "0.2.0",
+  "name": "viewsful",
+  "version": "0.0.0",
   "type": "module",
-  "main": "dist/index.es.js",
+  "main": "dist/viewsful.es.js",
   "exports": {
-    ".": "./dist/index.es.js"
+    ".": "./dist/viewsful.es.js"
   },
   "types": "types/index.d.ts",
   "files": [

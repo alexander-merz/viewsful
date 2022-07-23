@@ -7,7 +7,7 @@ import checkboxStyles from './checkbox.styles'
 
 @customElement('viewsful-checkbox')
 export class ViewsfulCheckbox extends isCheckbox(LitElement) {
-  static styles = checkboxStyles
+  static readonly styles = checkboxStyles
 
   render(): TemplateResult {
     return html`<label>

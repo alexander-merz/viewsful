@@ -6,7 +6,7 @@ import switchStyles from './switch.styles'
 
 @customElement('viewsful-switch')
 export class ViewsfulSwitch extends ViewsfulCheckbox {
-  static styles = switchStyles
+  static readonly styles = switchStyles
 
   render(): TemplateResult {
     return html`<label part="switch">

@@ -1,5 +1,5 @@
 import { assert } from '@open-wc/testing'
-import { ViewsfulSwitch } from './switch.element'
+import { ViewsfulSwitch } from './switch'
 
 suite('viewsful-switch', () => {
   test('is defined', () => {

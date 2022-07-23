@@ -1,3 +1,3 @@
 /* components */
-export * from './checkbox/checkbox.element'
-export * from './switch/switch.element'
+export * from './checkbox/checkbox'
+export * from './switch/switch'

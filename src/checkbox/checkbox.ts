@@ -1,13 +1,14 @@
-import { LitElement, html, TemplateResult } from 'lit'
+import { LitElement, html, TemplateResult, unsafeCSS } from 'lit'
 import { customElement } from 'lit/decorators.js'
 
 import { BrowserEvent } from '../base'
 import { isCheckbox } from '../common'
-import checkboxStyles from './checkbox.styles'
+
+import checkboxStyles from './checkbox.scss?inline'
 
 @customElement('viewsful-checkbox')
 export class ViewsfulCheckbox extends isCheckbox(LitElement) {
-  static readonly styles = checkboxStyles
+  static readonly styles = unsafeCSS(checkboxStyles)
 
   render(): TemplateResult {
     return html`<label>

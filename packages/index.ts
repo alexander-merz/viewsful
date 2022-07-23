@@ -1,7 +1,6 @@
 /* core */
 export * from './base'
 export * from './common'
-export * from './design/css/index.css'
 
 /* components */
 export * from './checkbox/checkbox.element'

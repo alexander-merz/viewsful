@@ -5,9 +5,8 @@ import { name } from './package.json'
 export default defineConfig({
   build: {
     lib: {
-      entry: 'src',
-      formats: ['es', 'umd'],
       name,
+      entry: 'src',
     },
   },
 })

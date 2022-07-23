@@ -1,3 +1,3 @@
 export interface IsToggleable {
-  toggle(event?: Event): void
+  toggle(): void
 }

@@ -17,7 +17,7 @@
   "scripts": {
     "clean:build": "rimraf dist types",
     "clean:test": "rimraf test",
-    "lint": "eslint packages --fix",
+    "lint": "eslint src --fix",
     "dev": "vite",
     "pretest": "tsc --p tsconfig.test.json",
     "test": "wtr",

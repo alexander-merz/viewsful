@@ -32,7 +32,7 @@ export default {
     },
   },
   plugins: [
-    esbuildPlugin({ ts: true }),
+    esbuildPlugin({ ts: true, loaders: { '.scss': 'text' } }),
     // Detect browsers without modules (e.g. IE11) and transform to SystemJS
     // (https://modern-web.dev/docs/dev-server/plugins/legacy/).
     legacyPlugin({

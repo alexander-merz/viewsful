@@ -5,7 +5,7 @@ export interface IsCheckable {
   checked: boolean
 }
 
-export function isCheckable<Base extends LitElementConstructor>(
+export function Checkable<Base extends LitElementConstructor>(
   base: Base
 ): Base & Constructor<IsCheckable> {
   class CheckableElement extends base implements IsCheckable {

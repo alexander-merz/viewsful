@@ -8,14 +8,17 @@ const browsers = {
   webkit: playwrightLauncher({ product: 'webkit' }),
 }
 
-const noBrowser = b => {
-  throw new Error(`No browser configured named '${b}'; using defaults`)
+const noBrowser = browser => {
+  throw new Error(`No browser configured named '${browser}'; using defaults`)
 }
+
 let commandLineBrowsers
 try {
-  commandLineBrowsers = process.env.BROWSERS?.split(',').map(b => browsers[b] ?? noBrowser(b))
-} catch (e) {
-  console.warn(e)
+  commandLineBrowsers = process.env.BROWSERS?.split(',').map(
+    browser => browsers[browser] ?? noBrowser(browser)
+  )
+} catch (error) {
+  console.warn(error)
 }
 
 // https://modern-web.dev/docs/test-runner/cli-and-configuration/

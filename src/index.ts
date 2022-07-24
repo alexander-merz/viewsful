@@ -1,3 +1,3 @@
-/* components */
-export * from './checkbox'
-export * from './switch'
+export * from './base'
+export * from './common'
+export * from './components'

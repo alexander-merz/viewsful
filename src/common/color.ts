@@ -7,11 +7,11 @@ export interface HasColor {
   color: Color
 }
 
-export function hasColor<Base extends LitElementConstructor>(
+export function Colored<Base extends LitElementConstructor>(
   base: Base
 ): Base & Constructor<HasColor> {
   class ColoredElement extends base implements HasColor {
-    @property() color: Color = 'primary'
+    @property({ reflect: true, type: String }) color: Color = 'primary'
   }
 
   return ColoredElement

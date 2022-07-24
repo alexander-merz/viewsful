@@ -1,13 +1,13 @@
 import { LitElement, html, TemplateResult, unsafeCSS } from 'lit'
 import { customElement } from 'lit/decorators.js'
 
-import { BrowserEvent } from '../base'
-import { isCheckbox } from '../common'
+import { BrowserEvent } from '../../base'
+import { Checkbox } from '../../common'
 
 import checkboxStyles from './checkbox.scss?inline'
 
 @customElement('viewsful-checkbox')
-export class ViewsfulCheckbox extends isCheckbox(LitElement) {
+export class ViewsfulCheckbox extends Checkbox(LitElement) {
   static readonly styles = unsafeCSS(checkboxStyles)
 
   render(): TemplateResult {
@@ -25,7 +25,7 @@ export class ViewsfulCheckbox extends isCheckbox(LitElement) {
     </label>`
   }
 
-  toggle(): void {
+  override toggle(): void {
     super.toggle()
     this.dispatchEvent(BrowserEvent.change)
   }

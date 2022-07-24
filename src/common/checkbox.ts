@@ -1,14 +1,13 @@
 import { Constructor, LitElementConstructor } from '../base'
-import { isCheckable, IsCheckable } from './checkable'
-import { hasColor, HasColor } from './color'
-import { canDisable, CanDisable } from './disable'
-import { hasLabel, HasLabel } from './label'
+import { Checkable, IsCheckable } from './checkable'
+import { Colored, HasColor } from './color'
+import { Disable, CanDisable } from './disable'
 import { IsToggleable } from './toggleable'
 
-export type Checkbox = Constructor<IsCheckable & IsToggleable & CanDisable & HasLabel & HasColor>
+export type Checkbox = Constructor<CanDisable & HasColor & IsCheckable & IsToggleable>
 
-export function isCheckbox<Base extends LitElementConstructor>(base: Base): Base & Checkbox {
-  return class extends isCheckable(canDisable(hasLabel(hasColor(base)))) implements IsToggleable {
+export function Checkbox<Base extends LitElementConstructor>(base: Base): Base & Checkbox {
+  return class extends Checkable(Disable(Colored(base))) implements IsToggleable {
     toggle(): void {
       this.checked = !this.checked
     }

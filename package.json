@@ -1,6 +1,6 @@
 {
   "name": "viewsful",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "main": "dist/viewsful.es.js",
   "exports": {
@@ -18,7 +18,7 @@
     "lint": "eslint src --fix",
     "dev": "vite",
     "test": "wtr",
-    "prebuild": "rimraf dist",
+    "prebuild": "rimraf dist www",
     "build": "tsc && vite build",
     "prepare": "husky install"
   },

@@ -1,8 +1,7 @@
 node_modules
 .vscode
-.DS_Store
 demo
 dist
 test
 types
-*.local
+www

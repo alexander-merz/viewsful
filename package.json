@@ -2,9 +2,9 @@
   "name": "viewsful",
   "version": "0.1.2",
   "type": "module",
-  "main": "dist/viewsful.es.js",
+  "main": "dist/viewsful.js",
   "exports": {
-    ".": "./dist/viewsful.es.js"
+    ".": "./dist/viewsful.js"
   },
   "types": "types/index.d.ts",
   "files": [

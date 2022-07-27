@@ -8,17 +8,5 @@ export default defineConfig({
       name,
       entry: 'src',
     },
-    rollupOptions: {
-      output: [
-        {
-          dir: 'dist/es',
-          format: 'es',
-        },
-        {
-          dir: 'dist/umd',
-          format: 'umd',
-        },
-      ],
-    },
   },
 })

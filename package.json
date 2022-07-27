@@ -2,10 +2,9 @@
   "name": "viewsful",
   "version": "0.1.3",
   "type": "module",
-  "main": "dist/es/viewsful.js",
+  "main": "dist/viewsful.js",
   "exports": {
-    "import": "./dist/es/viewsful.js",
-    "require": "./dist/umd/viewsful.umd.cjs"
+    "import": "./dist/viewsful.js"
   },
   "types": "types/index.d.ts",
   "files": [
@@ -21,8 +20,9 @@
     "test": "wtr",
     "test:watch": "wtr --watch",
     "prebuild": "rimraf dist types",
-    "build": "tsc && vite build",
-    "prepare": "husky install"
+    "build": "tsc && vite build && npm run post-build",
+    "prepare": "husky install",
+    "post-build": "node post-build.cjs"
   },
   "devDependencies": {
     "@open-wc/testing": "^2.5.33",

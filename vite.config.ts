@@ -15,7 +15,7 @@ export default defineConfig({
           format: 'es',
         },
         {
-          dir: 'www',
+          dir: 'umd',
           format: 'umd',
         },
       ],

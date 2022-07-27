@@ -2,15 +2,15 @@
   "name": "viewsful",
   "version": "0.1.2",
   "type": "module",
-  "main": "dist/viewsful.js",
+  "main": "dist/es/viewsful.js",
   "exports": {
-    ".": "./dist/viewsful.js"
+    "import": "./dist/es/viewsful.js",
+    "require": "./dist/umd/viewsful.umd.cjs"
   },
   "types": "types/index.d.ts",
   "files": [
     "dist",
-    "types",
-    "umd"
+    "types"
   ],
   "publishConfig": {
     "access": "public"
@@ -20,7 +20,7 @@
     "dev": "vite",
     "test": "wtr",
     "test:watch": "wtr --watch",
-    "prebuild": "rimraf dist umd",
+    "prebuild": "rimraf dist types",
     "build": "tsc && vite build",
     "prepare": "husky install"
   },

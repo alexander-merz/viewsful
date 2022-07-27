@@ -11,11 +11,11 @@ export default defineConfig({
     rollupOptions: {
       output: [
         {
-          dir: 'dist',
+          dir: 'dist/es',
           format: 'es',
         },
         {
-          dir: 'umd',
+          dir: 'dist/umd',
           format: 'umd',
         },
       ],

@@ -1,6 +1,9 @@
 # viewsful
 A collection of customizable standard web components built on top of Lit
 
+## View Components
+Clone this repository and run `npm run dev` to see the components in action.
+
 ## Installation
 
 You can start using `viewsful` web components simply by putting the following `script` into the `head` of your `html`:
